@@ -1,15 +1,22 @@
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
-export default function Layout() {
+export default function RootLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerTitle: "WagerFunding Picks",
-      }}
-    >
-      <Tabs.Screen name="low" options={{ title: "Low Risk" }} />
-      <Tabs.Screen name="medium" options={{ title: "Medium" }} />
-      <Tabs.Screen name="high" options={{ title: "High Risk" }} />
-    </Tabs>
+    <>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: "#060b16" },
+          headerTintColor: "white",
+          contentStyle: { backgroundColor: "#060b16" },
+          headerTitleStyle: { fontWeight: "900" },
+        }}
+      >
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="game/[event_id]" options={{ title: "Line Movement" }} />
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      </Stack>
+    </>
   );
 }
