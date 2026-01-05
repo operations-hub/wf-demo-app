@@ -48,7 +48,8 @@
       "router": {},
       "eas": {
         "projectId": "4188cb01-cc90-4532-b488-2c7611f4ded0"
-      }
+      },
+      "projectID": "4188cb01-cc90-4532-b488-2c7611f4ded0"
     },
     "owner": "adiiiiii",
     "runtimeVersion": {

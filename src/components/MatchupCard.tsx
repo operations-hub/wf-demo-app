@@ -7,9 +7,9 @@ type HighlightMode = "edge" | "win";
 function winColor(probAny: any) {
   const p = asNum(probAny);
   if (p === null) return "#64748b";
-  if (p >= 0.55) return "#22c55e";   // green
-  if (p >= 0.45) return "#f59e0b";   // yellow
-  return "#ef4444";                  // red
+  if (p >= 0.55) return "#22c55e";   
+  if (p >= 0.45) return "#f59e0b";  
+  return "#ef4444";                 
 }
 
 function pickColor(mode: HighlightMode, probAny: any, edgeAny: any) {
@@ -79,10 +79,10 @@ function fmtEdge(edgeAny: any) {
 
 function edgeColor(edgeAny: any) {
   const e = asNum(edgeAny);
-  if (e === null) return "#64748b";     // gray
-  if (e >= 0.03) return "#22c55e";      // green (>= 3% edge)
-  if (e >= 0.01) return "#f59e0b";      // yellow (>= 1% edge)
-  return "#ef4444";                     // red
+  if (e === null) return "#64748b";     
+  if (e >= 0.03) return "#22c55e";   
+  if (e >= 0.01) return "#f59e0b";    
+  return "#ef4444";             
 }
 
 function tint(color: string) {
@@ -135,7 +135,6 @@ export function MatchupCard({
 
   return (
     <Pressable onPress={onPress} style={styles.card}>
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.teamCol}>
           <Text style={styles.teamLabel}>HOME</Text>

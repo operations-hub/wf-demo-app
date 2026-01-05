@@ -19,7 +19,7 @@ export function HomeScreen({ navigation }: any) {
 
   useEffect(() => {
     loadLatest();
-    const id = setInterval(loadLatest, 15000); // poll faster than your 15m snapshots
+    const id = setInterval(loadLatest, 15000); // poll faster than my 15m snapshots
     return () => clearInterval(id);
   }, []);
 

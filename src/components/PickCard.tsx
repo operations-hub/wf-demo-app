@@ -2,9 +2,9 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import type { PickRow } from "../types/picks";
 
-/* =====================
+/* 
    EV → COLOR LOGIC
-===================== */
+ */
 
 function evColor(ev: number) {
   if (ev >= 0.05) return "#22c55e";   // green
@@ -16,9 +16,9 @@ function tint(color: string) {
   return `${color}2A`; // ~16% opacity
 }
 
-/* =====================
+/* 
    FORMATTERS
-===================== */
+ */
 
 function fmtAmerican(n: number) {
   return n > 0 ? `+${n}` : `${n}`;
@@ -34,9 +34,7 @@ function fmtSpread(x: number) {
   return x > 0 ? `+${x}` : `${x}`;
 }
 
-/* =====================
-   COMPONENT
-===================== */
+/* COMPONENT */
 
 export function PickCard({
   row,
@@ -93,9 +91,9 @@ export function PickCard({
   );
 }
 
-/* =====================
+/* 
    MARKET ROW
-===================== */
+ */
 
 function MarketRow({
   title,
@@ -124,9 +122,9 @@ function MarketRow({
   );
 }
 
-/* =====================
+/* 
    STYLES
-===================== */
+ */
 
 const styles = StyleSheet.create({
   card: {

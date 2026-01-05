@@ -20,12 +20,11 @@ export default function PicksTab() {
   const [refreshing, setRefreshing] = useState(false);
   const [filter, setFilter] = useState<"all" | "low" | "med" | "high">("all");
 
-  // ✅ NEW: highlight toggle
   const [highlightMode, setHighlightMode] = useState<HighlightMode>("edge");
 
   async function loadLatest() {
     const { data, error } = await supabase
-      .from("v_latest_picks") // ✅ use your latest view
+      .from("v_latest_picks") 
       .select("*")
       .order("commence_time", { ascending: true });
 
@@ -56,7 +55,6 @@ export default function PicksTab() {
     <View style={styles.wrap}>
       <Text style={styles.title}>Latest Picks</Text>
 
-      {/* ✅ NEW: Highlight toggle */}
       <View style={styles.toggleRow}>
         {(["edge", "win"] as const).map((m) => (
           <Pressable
@@ -65,7 +63,7 @@ export default function PicksTab() {
             style={[styles.toggleBtn, highlightMode === m && styles.toggleBtnActive]}
           >
             <Text style={[styles.toggleText, highlightMode === m && styles.toggleTextActive]}>
-              {m === "edge" ? "BIG PP" : "SMOL PP"}
+              {m === "edge" ? "EV BASED" : "PROBABILITY BASED"}
             </Text>
           </Pressable>
         ))}
@@ -91,7 +89,7 @@ export default function PicksTab() {
         renderItem={({ item }) => (
           <MatchupCard
             row={item}
-            highlightMode={highlightMode} // ✅ PASS IT
+            highlightMode={highlightMode} 
             onPress={() =>
               router.push({
                 pathname: "/game/[event_id]",
