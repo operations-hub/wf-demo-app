@@ -13,6 +13,7 @@ export default ({ config }: any) => ({
 
   ios: {
     supportsTablet: true,
+    package: "com.wf-picks.wfpicks",
   },
 
   android: {
@@ -24,6 +25,7 @@ export default ({ config }: any) => ({
     },
     edgeToEdgeEnabled: true,
     predictiveBackGestureEnabled: false,
+    package: "com.wf-picks.wfpicks",
   },
 
   web: {

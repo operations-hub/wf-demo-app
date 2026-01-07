@@ -34,15 +34,27 @@ export default function GameDetail() {
     return () => clearInterval(id);
   }, [event_id]);
 
-  const totals = useMemo(() => history.map((h) => Number(h.total_line)), [history]);
-  const spreads = useMemo(() => history.map((h) => Number(h.spread_home_minus)), [history]);
-  const ml = useMemo(() => history.map((h) => Number(h.odds_ml_home)), [history]);
+  const totals = useMemo(
+    () => history.map((h) => Number(h.total_line)),
+    [history]
+  );
+  const spreads = useMemo(
+    () => history.map((h) => Number(h.spread_home_minus)),
+    [history]
+  );
+  const ml = useMemo(
+    () => history.map((h) => Number(h.odds_ml_home)),
+    [history]
+  );
   const latest = history.length ? history[history.length - 1] : null;
 
   return (
-    <ScrollView style={styles.wrap} contentContainerStyle={{ paddingBottom: 30 }}>
+    <ScrollView
+      style={styles.wrap}
+      contentContainerStyle={{ paddingBottom: 30 }}
+    >
       <Text style={styles.title}>
-        {(away_team ?? "Away")} @ {(home_team ?? "Home")}
+        {away_team ?? "Away"} @ {home_team ?? "Home"}
       </Text>
       <Text style={styles.sub}>Event: {event_id}</Text>
 
@@ -50,7 +62,9 @@ export default function GameDetail() {
         <Text style={styles.h}>Most recent snapshot</Text>
         {latest ? (
           <Text style={styles.v}>
-            Total {latest.total_line} • Spread {latest.spread_home_minus} • ML {latest.odds_ml_home}{"\n"}
+            Total {latest.total_line} • Spread {latest.spread_home_minus} • ML{" "}
+            {latest.odds_ml_home}
+            {"\n"}
             Snapshot {new Date(latest.snapshot_ts).toLocaleString()}
           </Text>
         ) : (
@@ -80,7 +94,12 @@ const styles = StyleSheet.create({
   wrap: { flex: 1, backgroundColor: BG, padding: 14 },
   title: { color: "white", fontSize: 20, fontWeight: "900", marginBottom: 6 },
   sub: { color: "#94a3b8", marginBottom: 16 },
-  section: { backgroundColor: "#0f1b33", padding: 12, borderRadius: 12, marginBottom: 12 },
+  section: {
+    backgroundColor: "#0f1b33",
+    padding: 12,
+    borderRadius: 12,
+    marginBottom: 12,
+  },
   h: { color: "#9ca3af", fontSize: 12, marginBottom: 6, fontWeight: "800" },
   v: { color: "white", fontSize: 14 },
 });
